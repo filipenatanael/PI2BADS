@@ -1,0 +1,38 @@
+Links úteis:
+https://git-scm.com/book/pt-br/v1/Primeiros-passos-Configura%C3%A7%C3%A3o-Inicial-do-Git
+http://rogerdudler.github.io/git-guide/index.pt_BR.html
+https://gist.github.com/leocomelli/2545add34e4fec21ec16
+Para praticar:
+http://learngitbranching.js.org/
+
+Observações:
+Pessoal por favor, sempre antes de efetuarem um comando, tenham certeza do seu resultado para evitar problemas no projeto.
+
+Instruções básicas iniciais do git:
+
+*Primeiramente configurar nome e e-mail no git:
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+
+*Para clonar o repositório remoto na sua máquina:
+git clone https://github.com/01BrunoMagalhaes/PI2BADS
+
+*Para clonar um branch específico do repositório(no exemplo branch de documentacao):
+git clone -b documentacao http://github.com/01BrunoMagalhaes/PI2BADS
+
+*Vincular repositório local com um repositório remoto
+git remote add origin http://github.com/01BrunoMagalhaes/PI2BADS
+
+*O primeiro push de um repositório deve conter o nome do repositório remoto e o branch
+git push -u origin nomeDoBranch
+
+*Verificar a situação do branch
+git status
+
+*Trocar de branch 
+git checkout nomeDoBranch
+
+*Atualizar repositório local
+git pull
+
+
