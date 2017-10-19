@@ -42,6 +42,7 @@ export default class HomeScreen extends Component {
 }
 
 
+
 class Card extends Component {
   componentWillMount() {
     this.pan = new Animated.ValueXY()
@@ -126,7 +127,7 @@ const styles = StyleSheet.create({
 const profiles = [
   {
     id: 'https://cdn.pixabay.com/photo/2015/01/29/11/36/mobile-616012_960_720.jpg',
-    name: 'Sasha Grey',
+    name: 'Leandro Araujo',
     bio: 'Troco iPhone 7 em otimo estado, usado poucas vezes + carregado e fone de ouvido.',
   },
   {
