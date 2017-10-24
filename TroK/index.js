@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, View, Button, StyleSheet, Image, PanResponder, Animated, Dimensions, } from 'react-native';
+import { AppRegistry,
+  Text,
+  View,
+  Button,
+  StyleSheet,
+  Image,
+  PanResponder,
+  Animated,
+  Dimensions,
+  } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import ProfileScreen from './src/CustomComponents/ProfileScreen';
+import ProfileScreen from './src/Components/ProfileScreen';
 
-const { width, height } = Dimensions.get('window')
+const { width, height } = Dimensions.get('window');
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
@@ -15,14 +24,14 @@ export default class HomeScreen extends Component {
   }
 
   nextCard = () => {
-    this.setState({profileIndex: this.state.profileIndex + 1})
+    this.setState({ profileIndex: this.state.profileIndex + 1 });
   }
   render() {
-    const {profileIndex} = this.state;
+    const { profileIndex } = this.state;
     const { navigate } = this.props.navigation;
     return (
 
-      <View style={{flex:1}}>
+      <View style={{ flex: 1 }}>
       <View style={styles.btnProfile}>
       <Button onPress={() => navigate('Profile')} title="Go to Profile Screen!" />
       </View>
@@ -51,20 +60,20 @@ class Card extends Component {
       onStartShouldSetPanResponder: () => true,
       onPanResponderMove: Animated.event([
         null,
-        {dx:this.pan.x, dy:this.pan.y},
+        { dx: this.pan.x, dy: this.pan.y },
       ]),
-      onPanResponderRelease: (e, {dx}) => {
+      onPanResponderRelease: (e, { dx }) => {
         const absDx = Math.abs(dx)
         const direction = absDx / dx
 
         if (absDx > 120) {
           Animated.decay(this.pan, {
-            velocity: {x:3 * direction, y:0},
+            velocity: { x: 3 * direction, y: 0 },
             deceleration: 0.995,
           }).start(this.props.onSwipeOff)
         } else {
           Animated.spring(this.pan, {
-            toValue: {x:0, y:0},
+            toValue: { x: 0, y: 0 },
             friction: 4.5,
           }).start()
         }
@@ -74,7 +83,7 @@ class Card extends Component {
 
 
   render() {
-    const { name, bio, id} = this.props.profile
+    const { name, bio, id } = this.props.profile
     const fbImage = id;
 
     const rotateCard = this.pan.x.interpolate({
@@ -83,9 +92,9 @@ class Card extends Component {
     })
     const animatedStyle = {
       transform: [
-        {translateX: this.pan.x},
-        {translateY: this.pan.y},
-        {rotate: rotateCard},
+        { translateX: this.pan.x },
+        { translateY: this.pan.y },
+        { rotate: rotateCard },
       ],
     }
 
@@ -94,12 +103,12 @@ class Card extends Component {
       {...this.cardPanResponder.panHandlers}
       style={[styles.card, animatedStyle]}>
       <Image
-      style={{flex:1}}
-      source={{uri: fbImage}}
+      style={{ flex: 1 }}
+      source={{ uri: fbImage }}
       />
-      <View style={{margin:20}}>
-      <Text style={{fontSize:20}}>{name}</Text>
-      <Text style={{fontSize:17, marginTop:10, color:'black'}}>{bio}</Text>
+      <View style={{ margin: 20 }}>
+      <Text style={{ fontSize: 20 }}>{name}</Text>
+      <Text style={{ fontSize: 17, marginTop: 10, color: 'black' }}>{bio}</Text>
       </View>
       </Animated.View>
     )
@@ -122,7 +131,7 @@ const styles = StyleSheet.create({
   btnProfile: {
     margin: 10,
   }
-})
+});
 
 const profiles = [
   {
