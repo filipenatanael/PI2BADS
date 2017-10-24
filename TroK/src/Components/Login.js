@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Image, Text } from 'react-native';
+import { View, StyleSheet, Image, Text, KeyboardAvoidingView } from 'react-native';
 
 import LoginForm from './LoginForm';
 
 export default class Login extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.logoContainer}>
-          <Image
-          style={styles.logo}
-          source={require('../images/logoTrok.jpeg')}
-          />
-          <Text style={styles.title}>Hello, Welcome to the TroK.</Text>
-        </View>
-        <View style={styles.form}>
-          <LoginForm />
-        </View>
+      <KeyboardAvoidingView behavior="padding" style={styles.container}>
+      <View style={styles.logoContainer}>
+
+      <Image
+      style={styles.logo}
+      source={require('../images/logoTrok.jpeg')}
+      />
+      <Text style={styles.title}>Hello, Welcome to the TroK.</Text>
       </View>
+      <View style={styles.form}>
+      <LoginForm />
+
+      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
