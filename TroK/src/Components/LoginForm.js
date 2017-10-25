@@ -21,7 +21,6 @@ export default class LoginForm extends Component {
       keyboardType="email-address"
       autoCapitalize="none"
       autoCorrect={false}
-      auto
       style={styles.input}
       />
       <TextInput
