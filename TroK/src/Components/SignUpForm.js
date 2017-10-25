@@ -42,6 +42,17 @@ export default class LoginForm extends Component {
       autoCorrect={false}
       style={styles.input}
       />
+
+      <TextInput
+      placeholder="Password"
+      placeholderTextColor="#E59866"
+      returnKeyType="next"
+      keyboardType="default"
+      autoCapitalize="none"
+      autoCorrect={false}
+      style={styles.input}
+      />
+      
       <TouchableOpacity style={styles.btnContainer}>
       <Text style={styles.btnLogin}>Login</Text>
       </TouchableOpacity>
