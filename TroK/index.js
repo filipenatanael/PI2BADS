@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 import React, { Component } from 'react';
-import { AppRegistry, View, Text } from 'react-native';
+import { AppRegistry, View, Text, Button } from 'react-native';
 //import Login from './src/Components/Login';
 
 
@@ -19,9 +19,20 @@ export default class App extends Component {
     firebase.initializeApp(config);
   }
 
+  SaveDataTesting() {
+    var database = firebase.database();
+    database.ref("Punctuation").set("1200");
+  }
+
   render() {
     return (
     <View>
+    <Button
+    onPress={() => { this.SaveDataTesting(); }}
+    title="Save Data Testing"
+    color="#000"
+    accessibilityLabel="Save Data Testing"
+    />
     <Text>My Application</Text>
     </View>
     );
