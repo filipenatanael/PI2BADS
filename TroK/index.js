@@ -24,11 +24,19 @@ export default class App extends Component {
     var database = firebase.database();
     database.ref("Punctuation").set("1200");
     database.ref("Punctuation").remove();
-    */
-  }
 
-  render() {
-    return (
+    employees.push().set({
+       name: "John Wick",
+       age: 21,
+       phoneNumber: 32659878
+    });
+
+  employees.push().child("name").set("John Wick");
+  */
+}
+
+render() {
+  return (
     <View>
     <Button
     onPress={() => { this.SaveDataTesting(); }}
@@ -38,8 +46,8 @@ export default class App extends Component {
     />
     <Text>My Application</Text>
     </View>
-    );
-  }
+  );
+}
 }
 
 
