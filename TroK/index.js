@@ -4,6 +4,11 @@ import { AppRegistry, View, Text, Button } from 'react-native';
 
 export default class App extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = { employeesList: 0 }
+  }
+
   componentWillMount() {
     // Initialize Firebase
     var config = {
@@ -19,35 +24,38 @@ export default class App extends Component {
 
   SaveDataTesting() {
     var employees = firebase.database().ref("employees");
-    employees.child("001").child("name").set("John Wick");
-    /*
-    var database = firebase.database();
-    database.ref("Punctuation").set("1200");
-    database.ref("Punctuation").remove();
+    employees.child("001").child("name").set("Lucas Santos");
+  }
 
-    employees.push().set({
-       name: "John Wick",
-       age: 21,
-       phoneNumber: 32659878
+  ListDataTesting() {
+    var employees = firebase.database().ref("employees");
+    employees.on('value', (snapshot) => {
+        var List = snapshot.val();
+        this.setState({ employeesList: List } );
     });
+  }
 
-  employees.push().child("name").set("John Wick");
-  */
-}
 
-render() {
-  return (
-    <View>
-    <Button
-    onPress={() => { this.SaveDataTesting(); }}
-    title="Save Data Testing"
-    color="#000"
-    accessibilityLabel="Save Data Testing"
-    />
-    <Text>My Application</Text>
-    </View>
-  );
-}
+  render() {
+    let {employeesList} = this.state;
+    return (
+      <View>
+      <Button
+      onPress={() => { this.SaveDataTesting(); }}
+      title="Save Data Testing"
+      color="#000"
+      accessibilityLabel="Save Data Testing"
+      />
+      <Button
+      onPress={() => { this.ListDataTesting(); }}
+      title="List Data Testing"
+      color="#00FF7F"
+      accessibilityLabel="List Data Testing"
+      />
+      <Text>{employeesList}</Text>
+      </View>
+    );
+  }
 }
 
 
