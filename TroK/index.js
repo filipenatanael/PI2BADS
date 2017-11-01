@@ -72,6 +72,12 @@ export default class App extends Component {
       color="#00FF7F"
       accessibilityLabel="Check User"
       />
+      <Button
+      onPress={() => { this.isLoggedIn(); }}
+      title="Sign out"
+      color="#00FF7F"
+      accessibilityLabel="Sign out"
+      />
       </View>
     );
   }
