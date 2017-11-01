@@ -43,6 +43,20 @@ export default class App extends Component {
     }
   }
 
+  isLoggedInWithListening() {
+    const user = firebase.auth();
+
+    user.onAuthStateChanged(
+      (currentUser) => {
+        if(currentUser) {
+          alert("User is logged!");
+        }else{
+          alert("User is not logged!");
+        }
+      }
+    );
+  }
+
   render() {
     return (
       <View>
