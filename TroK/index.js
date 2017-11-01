@@ -17,35 +17,46 @@ export default class App extends Component {
     firebase.initializeApp(config);
   }
 
-   RegisterUser() {
-     var email = "trok.projects@gmail.com";
-     var password = "test123";
-     var user = firebase.auth();
-     user.createUserWithEmailAndPassword(
-       email,
-       password
-     ).catch(
-       (error) => {
-         //error.code or error.message
-         alert(error.message);
-       }
-     );
-   }
+  RegisterUser() {
+    var email = "trok.projects@gmail.com";
+    var password = "test123";
+    var user = firebase.auth();
+    user.createUserWithEmailAndPassword(
+      email,
+      password
+    ).catch(
+      (error) => {
+        //error.code or error.message
+        alert(error.message);
+      }
+    );
+  }
+
+  isLoggedIn() {
+    const user = firebase.auth();
+    const currentUser = user.currentUser;
+
+    if(currentUser){
+      alert("User is logged!");
+    }else{
+      alert("User is not logged!");
+    }
+  }
 
   render() {
     return (
       <View>
       <Button
       onPress={() => { this. RegisterUser(); }}
-      title="Save Data Testing"
+      title="Create User"
       color="#000"
-      accessibilityLabel="Save Data Testing"
+      accessibilityLabel="Create User"
       />
       <Button
-      onPress={() => { this.ListDataTesting(); }}
-      title="List Data Testing"
+      onPress={() => { this.isLoggedIn(); }}
+      title="Check User"
       color="#00FF7F"
-      accessibilityLabel="List Data Testing"
+      accessibilityLabel="Check User"
       />
       </View>
     );
