@@ -57,6 +57,26 @@ export default class App extends Component {
     );
   }
 
+  SignOutUser() {
+    const user = firebase.auth();
+    user.signOut();
+  }
+
+  LogInUser(){
+    var email = "trok.projects@gmail.com";
+    var password = "test123";
+
+    const user = firebase.auth();
+    user.signInWithEmailAndPassword(
+      email,
+      password
+    ).catch(
+      (error) => {
+        alert(error.message);
+      }
+    );
+  }
+
   render() {
     return (
       <View>
@@ -77,6 +97,12 @@ export default class App extends Component {
       title="Sign out"
       color="#00FF7F"
       accessibilityLabel="Sign out"
+      />
+      <Button
+      onPress={() => { this.LogInUser(); }}
+      title="Sign In"
+      color="#00FF7F"
+      accessibilityLabel="Sign In"
       />
       </View>
     );
