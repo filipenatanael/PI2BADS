@@ -4,11 +4,6 @@ import { AppRegistry, View, Text, Button } from 'react-native';
 
 export default class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { employeesList: 0 }
-  }
-
   componentWillMount() {
     // Initialize Firebase
     var config = {
@@ -22,26 +17,26 @@ export default class App extends Component {
     firebase.initializeApp(config);
   }
 
-  SaveDataTesting() {
-    var employees = firebase.database().ref("employees");
-    employees.child("001").child("name").set("Lucas Santos");
-  }
-
-  ListDataTesting() {
-    var employees = firebase.database().ref("employees");
-    employees.on('value', (snapshot) => {
-        var List = snapshot.val();
-        this.setState({ employeesList: List } );
-    });
-  }
-
+   RegisterUser() {
+     var email = "trok.projects@gmail.com";
+     var password = "test123";
+     var user = firebase.auth();
+     user.createUserWithEmailAndPassword(
+       email,
+       password
+     ).catch(
+       (error) => {
+         //error.code or error.message
+         alert(error.message);
+       }
+     );
+   }
 
   render() {
-    let {employeesList} = this.state;
     return (
       <View>
       <Button
-      onPress={() => { this.SaveDataTesting(); }}
+      onPress={() => { this. RegisterUser(); }}
       title="Save Data Testing"
       color="#000"
       accessibilityLabel="Save Data Testing"
@@ -52,7 +47,6 @@ export default class App extends Component {
       color="#00FF7F"
       accessibilityLabel="List Data Testing"
       />
-      <Text>{employeesList}</Text>
       </View>
     );
   }
