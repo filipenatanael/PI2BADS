@@ -62,7 +62,7 @@ export default class App extends Component {
     user.signOut();
   }
 
-  LogInUser(){
+  SignInUser(){
     var email = "trok.projects@gmail.com";
     var password = "test123";
 
@@ -81,7 +81,7 @@ export default class App extends Component {
     return (
       <View>
       <Button
-      onPress={() => { this. RegisterUser(); }}
+      onPress={() => { this.RegisterUser(); }}
       title="Create User"
       color="#000"
       accessibilityLabel="Create User"
@@ -93,13 +93,13 @@ export default class App extends Component {
       accessibilityLabel="Check User"
       />
       <Button
-      onPress={() => { this.isLoggedIn(); }}
+      onPress={() => { this.SignOutUser(); }}
       title="Sign out"
       color="#00FF7F"
       accessibilityLabel="Sign out"
       />
       <Button
-      onPress={() => { this.LogInUser(); }}
+      onPress={() => { this.SignInUser(); }}
       title="Sign In"
       color="#00FF7F"
       accessibilityLabel="Sign In"

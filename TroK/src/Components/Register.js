@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Image, Text, KeyboardAvoidingView } from 'react-native';
 
-import SignUpForm from './SignUpForm';
+import RegisterForm from './RegisterForm';
 
-export default class SignUp extends Component {
+export default class Register extends Component {
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <View style={styles.logoContainer}>
-
       <Image
       style={styles.logo}
       source={require('../images/logoTrok.jpeg')}
       />
       <Text style={styles.title}>Hello, Welcome to the TroK.</Text>
       </View>
+
       <View style={styles.form}>
-
-      <SignUpForm />
-
+      <RegisterForm />
       </View>
+
       </KeyboardAvoidingView>
     );
   }

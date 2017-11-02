@@ -8,7 +8,7 @@ import {
   StatusBar
 } from 'react-native';
 
-export default class LoginForm extends Component {
+export default class RegisterForm extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -52,9 +52,9 @@ export default class LoginForm extends Component {
       autoCorrect={false}
       style={styles.input}
       />
-      
+
       <TouchableOpacity style={styles.btnContainer}>
-      <Text style={styles.btnLogin}>Login</Text>
+      <Text style={styles.btnRegister}>Registrar-se</Text>
       </TouchableOpacity>
       </View>
     );
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12.5,
     marginBottom: 5
   },
-  btnLogin: {
+  btnRegister: {
     textAlign: 'center',
     color: '#000',
     fontWeight: '700'
