@@ -3,7 +3,7 @@ import { View, StyleSheet, Image, Text, KeyboardAvoidingView } from 'react-nativ
 
 import RegisterForm from './RegisterForm';
 
-export default class Register extends Component {
+export default class RegisterScreen extends Component {
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>

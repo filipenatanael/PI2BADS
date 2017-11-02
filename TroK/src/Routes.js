@@ -6,7 +6,9 @@ import RegisterScreen from './Components/RegisterScreen';
 
 export default props => (
   <Router>
+  <Scene key='app'>
   <Scene key='LoginScreen' component={LoginScreen} title="Login" />
   <Scene key='RegisterScreen' component={RegisterScreen} title="Register" />
+  </Scene>
   </Router>
 );
