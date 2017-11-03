@@ -1,6 +1,8 @@
 import firebase from 'firebase';
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import { AppRegistry } from 'react-native';
+import { createStone } from 'redux';
 import Routes from './src/Routes';
 
 export default class App extends Component {
@@ -19,7 +21,9 @@ export default class App extends Component {
 
   render() {
     return (
-     <Routes />
+      <Provider stone={createStone(reducers)}>
+        <Routes />
+      </Provider>
     );
   }
 }
