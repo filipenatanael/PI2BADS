@@ -61,6 +61,7 @@ export default class RegisterForm extends Component {
   }
 }
 
+
 const styles = StyleSheet.create({
   container: {
     padding: 20

@@ -1,7 +1,7 @@
 const INITIAL_STATE = {
   name: '',
   email: '',
-  password: '',
+  password: ''
 }
 
 export default (state = INITIAL_STATE, action) => {

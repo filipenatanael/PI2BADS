@@ -7,9 +7,10 @@ import {
   Text,
   StatusBar
 } from 'react-native';
+import { connect } from 'react-redux';
 
-export default class LoginForm extends Component {
-  render() {
+const LoginForm = props => {
+  console.log(props);
     return (
       <View style={styles.container}>
       <StatusBar barStyle="light-content" />
@@ -36,8 +37,17 @@ export default class LoginForm extends Component {
       </TouchableOpacity>
       </View>
     );
-  }
 }
+
+const mapStateToProps = state => (
+  {
+    email: state.AuthenticationReducer.email,
+    password: state.AuthenticationReducer.password
+  }
+)
+
+export default connect(mapStateToProps, null)(LoginForm);
+
 
 const styles = StyleSheet.create({
   container: {

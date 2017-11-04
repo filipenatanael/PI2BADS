@@ -23,7 +23,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <Provider stone={createStore(reducers)}>
+      <Provider store={createStore(reducers)}>
         <Routes />
       </Provider>
     );
