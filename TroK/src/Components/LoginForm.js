@@ -15,6 +15,7 @@ const LoginForm = props => {
       <View style={styles.container}>
       <StatusBar barStyle="light-content" />
       <TextInput
+      value={props.email}
       placeholder="Username or email"
       placeholderTextColor="#E59866"
       returnKeyType="next"
@@ -25,6 +26,7 @@ const LoginForm = props => {
       style={styles.input}
       />
       <TextInput
+      value={props.password}
       placeholder="Password"
       placeholderTextColor="#E59866"
       returnKeyType="go"
