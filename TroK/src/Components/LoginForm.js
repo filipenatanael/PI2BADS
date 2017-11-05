@@ -8,6 +8,7 @@ import {
   StatusBar
 } from 'react-native';
 import { connect } from 'react-redux';
+import { changeEmail } from '../actions/AuthenticationActions';
 
 const LoginForm = props => {
   console.log(props);
@@ -15,16 +16,18 @@ const LoginForm = props => {
       <View style={styles.container}>
       <StatusBar barStyle="light-content" />
       <TextInput
+      value={props.email}
       placeholder="Username or email"
-      placeholderTextColor="#E59866"
       returnKeyType="next"
       onSubmitEditing={() => this.passwordInput.focus()}
       keyboardType="email-address"
       autoCapitalize="none"
       autoCorrect={false}
       style={styles.input}
+      onChangeText={texto => props.changeEmail(texto)}
       />
       <TextInput
+      value={props.password}
       placeholder="Password"
       placeholderTextColor="#E59866"
       returnKeyType="go"
@@ -46,7 +49,7 @@ const mapStateToProps = state => (
   }
 )
 
-export default connect(mapStateToProps, null)(LoginForm);
+export default connect(mapStateToProps, { changeEmail })(LoginForm);
 
 
 const styles = StyleSheet.create({
