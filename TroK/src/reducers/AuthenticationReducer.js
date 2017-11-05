@@ -5,5 +5,10 @@ const INITIAL_STATE = {
 }
 
 export default (state = INITIAL_STATE, action) => {
+  if (action.type === 'change_Email') {
+    return { ...state, email: action.payload }
+  } else if (action.type === 'change_Password') {
+    return { ...state, password: action.payload }
+  }
   return state;
 }

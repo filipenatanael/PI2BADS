@@ -1,7 +1,13 @@
-export const changeEmail = (p) => {
-  console.log(p);
+export const changeEmail = (param) => {
   return {
-    type: 'change_email',
-    payload: p
+    type: 'change_Email',
+    payload: param
+  }
+}
+
+export const changePassword = (param) => {
+  return {
+    type: 'change_Password',
+    payload: param
   }
 }
