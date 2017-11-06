@@ -8,6 +8,7 @@ export default class LoginScreen extends Component {
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
+      <Image style={{ flex: 1, width: null }} source={require('../images/Background.png')}>
       <TouchableHighlight onPress={() => Actions.RegisterScreen()}>
       <Text>I dont have account!</Text>
       </TouchableHighlight>
@@ -23,6 +24,7 @@ export default class LoginScreen extends Component {
       <LoginForm />
 
       </View>
+      </Image>
       </KeyboardAvoidingView>
     );
   }
@@ -39,8 +41,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   logo: {
-    width: 100,
-    height: 100,
+    width: 150,
+    height: 150,
   },
   title: {
     color: '#000',
