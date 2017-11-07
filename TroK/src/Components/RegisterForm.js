@@ -7,8 +7,16 @@ import {
   Text,
   StatusBar
 } from 'react-native';
+import { connect } from 'react-redux';
+import { changeEmail, changePassword, registerUser } from '../actions/AuthenticationActions';
 
-export default class RegisterForm extends Component {
+class RegisterForm extends Component {
+
+  _registerUser() {
+    const { email, password } = this.props;
+    this.props.registerUser({ email, password });
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -24,6 +32,7 @@ export default class RegisterForm extends Component {
       />
 
       <TextInput
+      value={this.props.email}
       placeholder="Email"
       placeholderTextColor="#E59866"
       returnKeyType="next"
@@ -31,9 +40,11 @@ export default class RegisterForm extends Component {
       autoCapitalize="none"
       autoCorrect={false}
       style={styles.input}
+      onChangeText={(email) => this.props.changeEmail(email)}
       />
 
       <TextInput
+      value={this.props.password}
       placeholder="Telefone"
       placeholderTextColor="#E59866"
       returnKeyType="next"
@@ -41,6 +52,7 @@ export default class RegisterForm extends Component {
       autoCapitalize="none"
       autoCorrect={false}
       style={styles.input}
+      onChangeText={(password) => this.props.changePassword(password)}
       />
 
       <TextInput
@@ -53,13 +65,24 @@ export default class RegisterForm extends Component {
       style={styles.input}
       />
 
-      <TouchableOpacity style={styles.btnContainer}>
+      <TouchableOpacity style={styles.btnContainer} onPress={() => this._registerUser()}>
       <Text style={styles.btnRegister}>Registrar-se</Text>
       </TouchableOpacity>
       </View>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return (
+    {
+    email: state.AuthenticationReducer.email,
+    password: state.AuthenticationReducer.password
+    }
+  );
+}
+
+export default connect(mapStateToProps, { changeEmail, changePassword, registerUser })(RegisterForm);
 
 
 const styles = StyleSheet.create({
