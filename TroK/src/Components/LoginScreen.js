@@ -10,7 +10,9 @@ export default class LoginScreen extends Component {
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <Image style={{ flex: 1, width: null }} source={require('../images/Background.png')}>
       <TouchableHighlight onPress={() => Actions.RegisterScreen()}>
-      <Text>I dont have account!</Text>
+
+      <Text style={{ color: '#fff', textAlign: 'center', marginTop: 25 }}>I dont have account!</Text>
+
       </TouchableHighlight>
       <View style={styles.logoContainer}>
 
