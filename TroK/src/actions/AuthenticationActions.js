@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import { Actions } from 'react-native-router-flux';
 
 export const changeEmail = (param) => {
   return {
@@ -23,7 +24,8 @@ export const registerUser = ({ email, password }) => {
 }
 
 const successfullyRegistered = (dispatch) => {
-  dispatch({ type: 'OK' });
+  dispatch({ type: 'successfully_Registered' });
+  Actions.welcome();
 }
 
 const failureRegistered = (error, dispatch) => {

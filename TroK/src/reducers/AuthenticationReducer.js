@@ -12,6 +12,8 @@ export default (state = INITIAL_STATE, action) => {
     return { ...state, password: action.payload }
   } else if (action.type === 'failure_Registered') {
     return { ...state, errorRegister: action.payload }
+  } else if (action.type === 'successfully_Registered'){
+    return { ...state, password: '' }
   }
   return state;
 }
