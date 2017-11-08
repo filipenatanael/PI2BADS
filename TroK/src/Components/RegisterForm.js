@@ -19,7 +19,9 @@ class RegisterForm extends Component {
 
   render() {
     return (
+
       <View style={styles.container}>
+      <Text style={{ color: '#ff0000', fontSize: 15, textAlign: 'center', marginBottom: 15 }}>{this.props.errorRegister}</Text>
       <StatusBar barStyle="light-content" />
       <TextInput
       placeholder="Name"
@@ -77,7 +79,8 @@ const mapStateToProps = state => {
   return (
     {
     email: state.AuthenticationReducer.email,
-    password: state.AuthenticationReducer.password
+    password: state.AuthenticationReducer.password,
+    errorRegister: state.AuthenticationReducer.errorRegister
     }
   );
 }
