@@ -8,22 +8,29 @@ import {
   StatusBar
 } from 'react-native';
 import { connect } from 'react-redux';
-import { changeEmail, changePassword, registerUser } from '../actions/AuthenticationActions';
+import { changeEmail, changePassword, changeName, registerUser } from '../actions/AuthenticationActions';
 
 class RegisterForm extends Component {
 
   _registerUser() {
-    const { email, password } = this.props;
-    this.props.registerUser({ email, password });
+    const { name, email, password } = this.props;
+    this.props.registerUser({ name, email, password });
   }
 
-  render() {
-    return (
 
+  render() {
+    let colorAlerts = '#fff';
+    if (this.props.errorRegister !== '') {
+      colorAlerts = '#F7BE81';
+    }
+    return (
       <View style={styles.container}>
-      <Text style={{ color: '#ff0000', fontSize: 15, textAlign: 'center', marginBottom: 15 }}>{this.props.errorRegister}</Text>
+      <View style={{ height: 35, justifyContent: 'center', alignItems: 'center', marginBottom: 20, backgroundColor: colorAlerts }}>
+      <Text style={{ color: '#1C1C1C', fontSize: 13, fontWeight: 'bold', textAlign: 'center' }}>{this.props.errorRegister}</Text>
+      </View>
       <StatusBar barStyle="light-content" />
       <TextInput
+      value={this.props.name}
       placeholder="Name"
       placeholderTextColor="#E59866"
       returnKeyType="next"
@@ -31,6 +38,7 @@ class RegisterForm extends Component {
       autoCapitalize="none"
       autoCorrect={false}
       style={styles.input}
+      onChangeText={(name) => this.props.changeName(name)}
       />
 
       <TextInput
@@ -57,16 +65,6 @@ class RegisterForm extends Component {
       onChangeText={(password) => this.props.changePassword(password)}
       />
 
-      <TextInput
-      placeholder="Password"
-      placeholderTextColor="#E59866"
-      returnKeyType="next"
-      keyboardType="default"
-      autoCapitalize="none"
-      autoCorrect={false}
-      style={styles.input}
-      />
-
       <TouchableOpacity style={styles.btnContainer} onPress={() => this._registerUser()}>
       <Text style={styles.btnRegister}>Registrar-se</Text>
       </TouchableOpacity>
@@ -78,14 +76,15 @@ class RegisterForm extends Component {
 const mapStateToProps = state => {
   return (
     {
-    email: state.AuthenticationReducer.email,
-    password: state.AuthenticationReducer.password,
-    errorRegister: state.AuthenticationReducer.errorRegister
+      email: state.AuthenticationReducer.email,
+      password: state.AuthenticationReducer.password,
+      name: state.AuthenticationReducer.name,
+      errorRegister: state.AuthenticationReducer.errorRegister
     }
   );
 }
 
-export default connect(mapStateToProps, { changeEmail, changePassword, registerUser })(RegisterForm);
+export default connect(mapStateToProps, { changeEmail, changePassword, changeName, registerUser })(RegisterForm);
 
 
 const styles = StyleSheet.create({

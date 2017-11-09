@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
+import b64 from 'base-64';
 
 export const changeEmail = (param) => {
   return {
@@ -7,7 +8,6 @@ export const changeEmail = (param) => {
     payload: param
   }
 }
-
 export const changePassword = (param) => {
   return {
     type: 'change_Password',
@@ -15,10 +15,22 @@ export const changePassword = (param) => {
   }
 }
 
-export const registerUser = ({ email, password }) => {
+export const changeName = (param) => {
+  return {
+    type: 'change_Name',
+    payload: param
+  }
+}
+
+export const registerUser = ({ name, email, password }) => {
   return dispatch => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(user => successfullyRegistered(dispatch)) /*User successfully registered*/
+    .then(user => {
+      let emailB64 = b64.encode(email);
+      firebase.database().ref('/contacts/'+emailB64)
+      .push({ name })
+      .then(value => successfullyRegistered(dispatch))
+    })
     .catch(error => failureRegistered(error, dispatch)); /*Failed to register user*/
   }
 }
