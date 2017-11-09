@@ -43,3 +43,26 @@ const successfullyRegistered = (dispatch) => {
 const failureRegistered = (error, dispatch) => {
   dispatch({ type: 'failure_Registered', payload: error.message });
 }
+
+export const authenticationUser = ({ email, password }) => {
+  return dispatch => {
+    firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(value => successfullyLogin(dispatch))
+    .catch(error => failureLogin(error, dispatch));
+  }
+}
+
+
+const successfullyLogin = (dispatch) => {
+  dispatch({
+    type: 'successfully_Login'
+  });
+  Actions.welcome();
+}
+
+const failureLogin = (error, dispatch) => {
+  dispatch({
+    type: 'failure_Login',
+    payload: error.message
+  });
+}

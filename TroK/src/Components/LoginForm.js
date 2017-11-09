@@ -8,15 +8,28 @@ import {
   StatusBar
 } from 'react-native';
 import { connect } from 'react-redux';
-import { changeEmail, changePassword } from '../actions/AuthenticationActions';
+import { changeEmail, changePassword, authenticationUser } from '../actions/AuthenticationActions';
 
-const LoginForm = props => {
+class LoginForm extends Component {
+
+  _authenticationUserUser() {
+    const { email, password } = this.props;
+    this.props.authenticationUser({ email, password });
+  }
+  render() {
+    let colorAlerts = 'transparent';
+    if (this.props.errorLogin !== '') {
+      colorAlerts = '#F7BE81';
+    }
     return (
       <View style={styles.container}>
+      <View style={{ height: 35, justifyContent: 'center', alignItems: 'center', marginBottom: 20, backgroundColor: colorAlerts }}>
+      <Text style={{ color: '#1C1C1C', fontSize: 13, fontWeight: 'bold', textAlign: 'center' }}>{this.props.errorLogin}</Text>
+      </View>
       <StatusBar barStyle="light-content" />
       <TextInput
-      value={props.email}
-      onChangeText={(email) => props.changeEmail(email)}
+      value={this.props.email}
+      onChangeText={(email) => this.props.changeEmail(email)}
       placeholder="Username or email"
       returnKeyType="next"
       onSubmitEditing={() => this.passwordInput.focus()}
@@ -26,8 +39,8 @@ const LoginForm = props => {
       style={styles.input}
       />
       <TextInput
-      value={props.password}
-      onChangeText={(password) => props.changePassword(password)}
+      value={this.props.password}
+      onChangeText={(password) => this.props.changePassword(password)}
       placeholder="Password"
       placeholderTextColor="#E59866"
       returnKeyType="go"
@@ -35,21 +48,23 @@ const LoginForm = props => {
       style={styles.input}
       ref={(input) => this.passwordInput = input}
       />
-      <TouchableOpacity style={styles.btnContainer}>
+      <TouchableOpacity style={styles.btnContainer} onPress={() => this._authenticationUserUser()}>
       <Text style={styles.btnLogin}>Login</Text>
       </TouchableOpacity>
       </View>
     );
+  }
 }
 
 const mapStateToProps = state => (
   {
     email: state.AuthenticationReducer.email,
-    password: state.AuthenticationReducer.password
+    password: state.AuthenticationReducer.password,
+    errorLogin: state.AuthenticationReducer.errorLogin
   }
 )
 
-export default connect(mapStateToProps, { changeEmail, changePassword })(LoginForm);
+export default connect(mapStateToProps, { changeEmail, changePassword, authenticationUser })(LoginForm);
 
 
 const styles = StyleSheet.create({

@@ -1,8 +1,9 @@
 const INITIAL_STATE = {
-  name: 'DefaultName',
-  email: 'email@example.com',
-  password: 'myPassword',
-  errorRegister: ''
+  name: '',
+  email: '',
+  password: '',
+  errorRegister: '',
+  errorLogin: ''
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -16,6 +17,8 @@ export default (state = INITIAL_STATE, action) => {
     return { ...state, errorRegister: action.payload }
   } else if (action.type === 'successfully_Registered') {
     return { ...state, password: '' }
+  } else if (action.type === 'failure_Login') {
+    return { ...state, errorLogin: action.payload }
   }
   return state;
 }
