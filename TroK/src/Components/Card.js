@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     width: width - 20,
     height: height * 0.7,
     //top: (height * 0.3) / 10,
-    marginTop: 50,
+    marginTop: 10,
     overflow: 'hidden',
     backgroundColor: 'white',
     margin: 10,

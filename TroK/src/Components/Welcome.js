@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import Card from './Card';
 import { StackNavigator } from 'react-navigation';
 
@@ -18,7 +18,8 @@ export default class Welcome extends Component {
   render() {
     const { profileIndex } = this.state;
     return (
-      <View style={{ flex: 1 }}>
+
+      <View style={{ flex: 1, backgroundColor: '#EAECEE' }}>
       {profiles.slice(profileIndex, profileIndex + 4).reverse().map((profile) => {
         return (
           <Card
@@ -28,8 +29,18 @@ export default class Welcome extends Component {
           />
         )
       })}
-      </View>
 
+      <View
+      style={{
+        backgroundColor: '#000',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+      }}>
+      <Text>sdfsdfsfsf</Text>
+      <Text>sdfsdfsfsf</Text>
+      <Text>sdfsdfsfsf</Text>
+      </View>
+      </View>
     );
   }
 }

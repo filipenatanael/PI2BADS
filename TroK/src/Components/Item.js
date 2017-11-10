@@ -3,17 +3,19 @@ import {
   View,
   Text,
   Image,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity,
+  Alert
 } from 'react-native';
 
 export default class Item extends Component {
   render() {
     return (
+      <TouchableOpacity onPress={() => Alert.alert(this.props.item.titulo+' foi selecionado!')}>
       <View style={styles.item}>
       <View style={styles.photo}>
-      <Image style={{ width: 100, height: 100, }} source={{ uri: this.props.item.foto }} />
+      <Image style={{ width: 100, height: 100, }} source={{ uri: this.props.item.foto }}/>
       </View>
-
       <View style={styles.details}>
       <Text style={styles.txtTitle}>{this.props.item.titulo}</Text>
       <Text style={styles.txtValue}>Valor: {this.props.item.valor}</Text>
@@ -21,6 +23,7 @@ export default class Item extends Component {
       <Text style={styles.txtDetails}>Data: {this.props.item.data_publicacao}</Text>
       </View>
       </View>
+      </TouchableOpacity>
     );
   }
 }
