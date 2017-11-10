@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import Card from './Card';
 import { StackNavigator } from 'react-navigation';
-import { Actions } from 'react-native-router-flux';
 
 export default class Welcome extends Component {
   static navigationOptions = {
@@ -19,11 +18,7 @@ export default class Welcome extends Component {
   render() {
     const { profileIndex } = this.state;
     return (
-
       <View style={{ flex: 1 }}>
-      <View style={styles.btnProfile}>
-      <Button onPress={() => Actions.profileSreen()} title="Go to Profile Screen!" />
-      </View>
       {profiles.slice(profileIndex, profileIndex + 4).reverse().map((profile) => {
         return (
           <Card
@@ -39,15 +34,11 @@ export default class Welcome extends Component {
   }
 }
 
+
 export const App = StackNavigator({
   Home: { screen: Welcome }
 });
 
-const styles = StyleSheet.create({
-  btnProfile: {
-    margin: 10,
-  }
-});
 
 const profiles = [
   {

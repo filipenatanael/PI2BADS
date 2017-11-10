@@ -7,7 +7,9 @@ import {
   PanResponder,
   Animated,
   Dimensions,
-  } from 'react-native';
+  TouchableOpacity,
+} from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 const { width, height } = Dimensions.get('window');
 
@@ -65,10 +67,13 @@ export default class Card extends Component {
       style={{ flex: 1 }}
       source={{ uri: fbImage }}
       />
+
+      <TouchableOpacity onPress={() => Actions.profileScreen()}>
       <View style={{ margin: 20 }}>
       <Text style={{ fontSize: 20 }}>{name}</Text>
       <Text style={{ fontSize: 17, marginTop: 10, color: 'black' }}>{bio}</Text>
       </View>
+      </TouchableOpacity>
       </Animated.View>
     )
   }

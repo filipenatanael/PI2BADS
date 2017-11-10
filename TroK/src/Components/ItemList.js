@@ -7,7 +7,6 @@ import axios from 'axios';
 import Item from './Item';
 
 export default class ItemList extends Component {
-
   constructor(props) {
     super(props);
     this.state = { itemList: [] };
@@ -29,7 +28,7 @@ export default class ItemList extends Component {
 }
 
 const styles = StyleSheet.create({
-    ScrollView: {
-      backgroundColor: '#EAECEE',
-    }
+  ScrollView: {
+    backgroundColor: '#EAECEE',
+  }
 });

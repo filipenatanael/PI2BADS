@@ -12,7 +12,7 @@ export default props => (
   <Scene key='loginScreen' component={LoginScreen} title="Login" />
   <Scene key='RegisterScreen' component={RegisterScreen} title="Register" />
   <Scene key='welcome' component={Welcome} title="Welcome" initial />
-  <Scene key='profileSreen' component={ProfileScreen} title='ProfileScreen' />
+  <Scene key='profileScreen' component={ProfileScreen} title='ProfileScreen' />
   </Scene>
   </Router>
 );
