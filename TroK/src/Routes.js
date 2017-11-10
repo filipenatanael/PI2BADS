@@ -9,7 +9,7 @@ import ProfileScreen from './Components/ProfileScreen'
 export default props => (
   <Router>
   <Scene key='app'>
-  <Scene key='loginScreen' component={LoginScreen} title="Login" hideNavBar={true} initial />
+  <Scene key='loginScreen' component={LoginScreen} title="Login" hideNavBar={true} />
   <Scene key='RegisterScreen' component={RegisterScreen} title="Register" hideNavBar={true} />
   <Scene key='welcome' component={Welcome} title="Welcome" />
   <Scene key='profileScreen' component={ProfileScreen} title='ProfileScreen' />

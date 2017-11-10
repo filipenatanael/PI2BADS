@@ -7,18 +7,19 @@ export default class RegisterScreen extends Component {
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
+      <Image style={{ flex: 1, width: null }} source={require('../images/Background.png')}>
       <View style={styles.logoContainer}>
       <Image
       style={styles.logo}
-      source={require('../images/logoTrok.jpeg')}
+      source={require('../images/logoTrokRegister.png')}
       />
       <Text style={styles.title}>Hello, Welcome to the TroK.</Text>
       </View>
 
-      <View style={styles.form}>
+      <View>
       <RegisterForm />
       </View>
-
+      </Image>
       </KeyboardAvoidingView>
     );
   }
@@ -35,16 +36,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   logo: {
-    width: 100,
-    height: 100,
+    width: 150,
+    height: 150,
   },
   title: {
-    color: '#000',
+    color: '#fff',
     marginTop: 10,
     textAlign: 'center',
     opacity: 0.5,
-  },
-  form: {
-
+    fontSize: 12
   }
 });
