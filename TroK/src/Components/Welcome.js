@@ -18,7 +18,6 @@ export default class Welcome extends Component {
   }
   render() {
     const { profileIndex } = this.state;
-    const { navigate } = this.props.navigation;
     return (
 
       <View style={{ flex: 1 }}>
@@ -38,26 +37,17 @@ export default class Welcome extends Component {
 
     );
   }
-
-
 }
-
-
-/*
-<Button onPress={() => navigate('Profile')} title="Go to Profile Screen!" />
-*/
 
 export const App = StackNavigator({
   Home: { screen: Welcome }
 });
-
 
 const styles = StyleSheet.create({
   btnProfile: {
     margin: 10,
   }
 });
-
 
 const profiles = [
   {
@@ -81,9 +71,6 @@ const profiles = [
     bio: 'Troco livros colecionais, varios titulos e generos diferentes.',
   },
 ]
-
-
-
 
 /*
 import React from 'react';
