@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import Card from './Card';
 import { StackNavigator } from 'react-navigation';
 
@@ -18,8 +18,8 @@ export default class Welcome extends Component {
   render() {
     const { profileIndex } = this.state;
     return (
-
       <View style={{ flex: 1, backgroundColor: '#EAECEE' }}>
+      <View style={{ flex: 10 }}>
       {profiles.slice(profileIndex, profileIndex + 4).reverse().map((profile) => {
         return (
           <Card
@@ -29,16 +29,10 @@ export default class Welcome extends Component {
           />
         )
       })}
+      </View>
 
-      <View
-      style={{
-        backgroundColor: '#000',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-      }}>
-      <Text>sdfsdfsfsf</Text>
-      <Text>sdfsdfsfsf</Text>
-      <Text>sdfsdfsfsf</Text>
+      <View style={{ flex: 1, backgroundColor: '#29088A' }}>
+      <Text style={{ textAlign: 'center', fontSize: 20, fontWeight: 'bold', color: '#fff', padding: 12 }} onPress={() => alert('Under development')}>Menu do aplicativo</Text>
       </View>
       </View>
     );

@@ -30,8 +30,8 @@ export default class Item extends Component {
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: '#fff',
-    borderWidth: 1,
+    backgroundColor: '#9FF781',
+    borderWidth: 2,
     borderColor: '#999',
     margin: 10,
     padding: 10,
@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
   photo: {
     width: 105,
     height: 105,
-    borderWidth: 1,
-    borderColor: '#999',
+    borderWidth: 2,
+    borderColor: '#000',
   },
   details: {
     marginLeft: 20,
@@ -49,14 +49,16 @@ const styles = StyleSheet.create({
   },
   txtTitle: {
     fontSize: 20,
-    color: '#273746',
+    color: '#29088A',
     marginBottom: 5,
   },
   txtValue: {
-    fontSize: 15,
+    color: '#B18904',
+    fontSize: 16,
     fontWeight: 'bold'
   },
   txtDetails: {
-    fontSize: 14,
+    color: '#000',
+    fontSize: 14
   }
 });

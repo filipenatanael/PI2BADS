@@ -11,18 +11,18 @@ export default class LoginScreen extends Component {
       <Image style={{ flex: 1, width: null }} source={require('../images/Background.png')}>
       <TouchableHighlight onPress={() => Actions.RegisterScreen()}>
 
-      <Text style={{ color: '#fff', textAlign: 'center', marginTop: 25 }}>I dont have account!</Text>
+      <Text style={{ color: '#fff', fontSize: 18, textAlign: 'center', marginTop: 25 }}>I dont have account!</Text>
 
       </TouchableHighlight>
       <View style={styles.logoContainer}>
 
       <Image
       style={styles.logo}
-      source={require('../images/logoTrok.jpeg')}
+      source={require('../images/logoTrok.png')}
       />
       <Text style={styles.title}>Hello, Welcome to the TroK.</Text>
       </View>
-      <View style={styles.form}>
+      <View>
       <LoginForm />
 
       </View>
@@ -47,12 +47,10 @@ const styles = StyleSheet.create({
     height: 150,
   },
   title: {
-    color: '#000',
+    color: '#fff',
     marginTop: 10,
     textAlign: 'center',
     opacity: 0.5,
-  },
-  form: {
-
+    fontSize: 12
   }
 });

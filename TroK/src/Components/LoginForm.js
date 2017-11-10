@@ -31,6 +31,7 @@ class LoginForm extends Component {
       value={this.props.email}
       onChangeText={(email) => this.props.changeEmail(email)}
       placeholder="Username or email"
+      placeholderTextColor="#585858"
       returnKeyType="next"
       onSubmitEditing={() => this.passwordInput.focus()}
       keyboardType="email-address"
@@ -42,14 +43,14 @@ class LoginForm extends Component {
       value={this.props.password}
       onChangeText={(password) => this.props.changePassword(password)}
       placeholder="Password"
-      placeholderTextColor="#E59866"
+      placeholderTextColor="#585858"
       returnKeyType="go"
       secureTextEntry
       style={styles.input}
       ref={(input) => this.passwordInput = input}
       />
       <TouchableOpacity style={styles.btnContainer} onPress={() => this._authenticationUserUser()}>
-      <Text style={styles.btnLogin}>Login</Text>
+      <Text style={styles.btnLogin}>Log in</Text>
       </TouchableOpacity>
       </View>
     );
@@ -79,13 +80,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12.5
   },
   btnContainer: {
-    backgroundColor: '#D5D8DC',
+    backgroundColor: '#29088A',
     paddingVertical: 12.5,
     marginBottom: 5
   },
   btnLogin: {
     textAlign: 'center',
-    color: '#000',
-    fontWeight: '700'
+    color: '#fff',
+    fontWeight: '700',
+    fontSize: 15
   }
 });
