@@ -55,7 +55,7 @@ class RegisterForm extends Component {
 
       <TextInput
       value={this.props.password}
-      placeholder="Telefone"
+      placeholder="Password"
       placeholderTextColor="#585858"
       returnKeyType="next"
       keyboardType="default"
