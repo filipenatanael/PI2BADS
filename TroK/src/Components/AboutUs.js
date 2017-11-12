@@ -23,7 +23,7 @@ export default class AboutUs extends Component {
   }
 }
 
-//  <Text style={{ textAlign: 'center', fontSize: 20, fontWeight: 'bold', color: '#fff', padding: 12 }} onPress={() => this.props.navigation.navigate('DrawerOpen')}></Text>
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

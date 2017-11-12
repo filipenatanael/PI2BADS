@@ -8,19 +8,13 @@ import ItemList from './ItemList';
 import CardScreen from './CardScreen';
 import AboutUs from './AboutUs';
 
-
-
 const Drawer = DrawerNavigator(
   {
-    First: {
+    'First Screen': {
       path: '/',
       screen: AboutUs,
-      navigationOptions: {
-        drawerLabel: <View><Text style={{ color: '#fff' }}>Menu do aplicativo TroK </Text></View>,
-        drawerIcon: <Image source={require('../images/Background.png')} size={20} style={{ height: 100 }} />
-      },
     },
-    List: {
+    'Second Screen': {
       path: '/sent',
       screen: ItemList,
     },
@@ -33,44 +27,56 @@ const Drawer = DrawerNavigator(
     initialRouterName: 'First',
     drawerPosition: 'left',
     drawerWidth: 300,
-    contentComponent: props => <ScrollView><DrawerItems {...props} /></ScrollView>,
     drawerBackgroundColor: 'transparent',
     contentOptions: {
       activeTintColor: 'red',
-    }
+    },
+    contentComponent: props =>
+    <View>
+    <View style={styles.container}>
+
+    <View style={styles.drawerIconContainer}>
+    <Image source={require('../images/profile.png')} style={{ width: 70, height: 70 }} />
+    </View>
+
+    <View style={styles.drawerTextContainer}>
+    <Text style={styles.name}>Trok</Text>
+    <Text style={styles.email}>trok@hotmail.com</Text>
+    </View>
+
+    </View>
+    <DrawerItems {...props} />
+    </View>
   });
-
-
 
   export default class Welcome extends Component {
     render() {
       return (
-
         <Drawer />
-
       );
     }
   }
 
+  const styles = StyleSheet.create({
+    container: {
+      height: 100,
+      backgroundColor: '#000',
+      padding: 10,
+      flexDirection: 'row',
+    },
+    drawerIconContainer: {
 
-  /*
-  import React from 'react';
-  import { View, Text, Button, Image } from 'react-native';
-  import { Actions } from 'react-native-router-flux';
-
-  export default props => (
-  <Image style={{ flex: 1, width: null }} source={require('../images/Background.png')}>
-  <View style={{ flex: 1, padding: 15 }}>
-  <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-  <Image style={{ width: 150, height: 150 }} source={require('../images/logoTrok.jpeg')} />
-  <Text style={{ color: '#fff', fontSize: 15, textAlign: 'center', marginTop: 10 }}>Welcome to TroK!</Text>
-  </View>
-  <View style={{ flex: 1 }}>
-  <Button title="Get in" onPress={() => Actions.loginScreen()} />
-  </View>
-  </View>
-  </Image>
-);
-
-
-*/
+    },
+    drawerTextContainer: {
+      marginTop: 15,
+      marginLeft: 15
+    },
+    name: {
+      color: '#fff',
+      fontWeight: 'bold',
+      fontSize: 18
+    },
+    email: {
+      color: '#fff'
+    }
+  });
