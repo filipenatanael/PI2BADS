@@ -5,12 +5,13 @@ import { DrawerNavigator, DrawerItems } from 'react-navigation';
 import ItemList from './ItemList';
 import CardScreen from './CardScreen';
 import AboutUs from './AboutUs';
+import Home from './Home';
 
 const Drawer = DrawerNavigator(
   {
-    'First Screen': {
+    'Home Screen': {
       path: '/',
-      screen: AboutUs,
+      screen: Home,
     },
     'Second Screen': {
       path: '/sent',
@@ -24,7 +25,7 @@ const Drawer = DrawerNavigator(
   {
     initialRouterName: 'First',
     drawerPosition: 'left',
-    drawerWidth: 300,
+    drawerWidth: 250,
     drawerBackgroundColor: 'transparent',
     contentOptions: {
       activeTintColor: 'red',

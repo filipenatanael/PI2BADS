@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import Card from './Card';
 
 export default class Welcome extends Component {
@@ -26,12 +26,7 @@ export default class Welcome extends Component {
         )
       })}
       </View>
-
-      <View style={{ flex: 1, backgroundColor: '#29088A' }}>
-      <Text style={{ textAlign: 'center', fontSize: 20, fontWeight: 'bold', color: '#fff', padding: 12 }} onPress={() => alert('Under development')}>Menu do aplicativo</Text>
       </View>
-      </View>
-
     );
   }
 }
