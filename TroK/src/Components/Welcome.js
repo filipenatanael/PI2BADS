@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, Button, Icon, Image, TouchableHightlight, StyleSheet, ScrollView } from 'react-native';
-
-import { StackNavigator, DrawerNavigator, DrawerItems } from 'react-navigation';
-
+import { View, Text, Image, StyleSheet } from 'react-native';
+import { DrawerNavigator, DrawerItems } from 'react-navigation';
 
 import ItemList from './ItemList';
 import CardScreen from './CardScreen';
@@ -40,10 +38,9 @@ const Drawer = DrawerNavigator(
     </View>
 
     <View style={styles.drawerTextContainer}>
-    <Text style={styles.name}>Trok</Text>
+    <Text style={styles.name}>TroK</Text>
     <Text style={styles.email}>trok@hotmail.com</Text>
     </View>
-
     </View>
     <DrawerItems {...props} />
     </View>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
 import CardScreen from './CardScreen';
 
 const { width, height } = Dimensions.get('window');
@@ -23,7 +23,6 @@ export default class AboutUs extends Component {
   }
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -45,6 +44,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginLeft: 10
   }
-
-
 });

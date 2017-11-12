@@ -10,10 +10,10 @@ export default class Welcome extends Component {
   nextCard = () => {
     this.setState({ profileIndex: this.state.profileIndex + 1 });
   }
+
   render() {
     const { profileIndex } = this.state;
     return (
-
       <View style={{ flex: 1, backgroundColor: '#EAECEE' }}>
       <View style={{ flex: 10 }}>
       {profiles.slice(profileIndex, profileIndex + 4).reverse().map((profile) => {
@@ -35,7 +35,6 @@ export default class Welcome extends Component {
     );
   }
 }
-
 
 const profiles = [
   {
