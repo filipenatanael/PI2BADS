@@ -1,31 +1,56 @@
 import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import { DrawerNavigator, DrawerItems } from 'react-navigation';
+import { DrawerNavigator, DrawerItems, StackNavigator } from 'react-navigation';
 
 import ItemList from './ItemList';
 import CardScreen from './CardScreen';
 import AboutUs from './AboutUs';
 import Home from './Home';
+import LoginScreen from './LoginScreen';
+
+const Stack = StackNavigator({
+  CardScreen: {
+    screen: CardScreen,
+  },
+  ItemList: {
+    screen: ItemList,
+  }
+},
+{
+  headerMode: 'none',
+});
 
 const Drawer = DrawerNavigator(
   {
-    'Home Screen': {
-      path: '/',
-      screen: Home,
+    Home1: {
+      screen: Stack,
+      navigationOptions: {
+        drawer: {
+          label: 'testesdsf',
+        },
+      }
     },
-    'Second Screen': {
+    'My Items': {
       path: '/sent',
       screen: ItemList,
     },
-    Third: {
+    'Screen 3': {
       path: '/sent',
       screen: CardScreen,
+    },
+    'Screen 4': {
+      path: '/sent',
+      screen: CardScreen,
+    },
+    'About Us': {
+      path: '/sent',
+      screen: AboutUs,
     }
   },
   {
-    initialRouterName: 'First',
+    initialRouteName: 'Home1',
     drawerPosition: 'left',
-    drawerWidth: 250,
+    drawerWidth: 270,
     drawerBackgroundColor: 'transparent',
     contentOptions: {
       activeTintColor: 'red',
@@ -63,10 +88,9 @@ const Drawer = DrawerNavigator(
       flexDirection: 'row',
     },
     drawerIconContainer: {
-
     },
     drawerTextContainer: {
-      marginTop: 15,
+      marginTop: 13,
       marginLeft: 15
     },
     name: {

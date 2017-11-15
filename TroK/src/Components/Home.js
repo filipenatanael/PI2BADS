@@ -16,7 +16,9 @@ export default class Home extends Component {
       </View>
       </View>
       <View style={styles.content}>
+
       <CardScreen />
+      
       </View>
       </View>
     );

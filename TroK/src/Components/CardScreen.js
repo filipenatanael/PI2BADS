@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, TouchableOpacity, Image } from 'react-native';
+import DefaultStyles from './Styles';
 import Card from './Card';
 
 export default class Welcome extends Component {
@@ -14,6 +15,15 @@ export default class Welcome extends Component {
   render() {
     const { profileIndex } = this.state;
     return (
+      <View style={DefaultStyles.container}>
+      <View style={DefaultStyles.navbar}>
+      <View style={DefaultStyles.icon}>
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('DrawerOpen')}>
+      <Image style={DefaultStyles.img} source={require('../images/icones.png')} />
+      </TouchableOpacity>
+      </View>
+      </View>
+      <View style={DefaultStyles.content}>
       <View style={{ flex: 1, backgroundColor: '#EAECEE' }}>
       <View style={{ flex: 10 }}>
       {profiles.slice(profileIndex, profileIndex + 4).reverse().map((profile) => {
@@ -21,15 +31,21 @@ export default class Welcome extends Component {
           <Card
           key={profile.id}
           profile={profile}
+          testeProps={() => this.props.navigation.navigate('ItemList')}
           onSwipeOff={this.nextCard}
           />
         )
       })}
       </View>
       </View>
+      </View>
+      </View>
     );
   }
 }
+
+
+
 
 const profiles = [
   {

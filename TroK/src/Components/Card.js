@@ -14,6 +14,9 @@ import { Actions } from 'react-native-router-flux';
 const { width, height } = Dimensions.get('window');
 
 export default class Card extends Component {
+  constructor(props) {
+    super(props);
+  }
   componentWillMount() {
     this.pan = new Animated.ValueXY()
 
@@ -42,7 +45,6 @@ export default class Card extends Component {
     })
   }
 
-
   render() {
     const { name, bio, id } = this.props.profile
     const fbImage = id;
@@ -68,7 +70,7 @@ export default class Card extends Component {
       source={{ uri: fbImage }}
       />
 
-      <TouchableOpacity onPress={() => Actions.profileScreen()}>
+      <TouchableOpacity onPress={() => this.props.testeProps()}>
       <View style={{ margin: 20 }}>
       <Text style={{ fontSize: 20 }}>{name}</Text>
       <Text style={{ fontSize: 17, marginTop: 10, color: 'black' }}>{bio}</Text>

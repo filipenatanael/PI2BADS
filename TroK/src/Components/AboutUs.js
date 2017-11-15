@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
-import CardScreen from './CardScreen';
-
-const { width, height } = Dimensions.get('window');
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import DefaultStyles from './Styles';
 
 export default class AboutUs extends Component {
   render() {
     return (
-      <View style={styles.container}>
-      <View style={styles.navbar}>
-      <View style={styles.icon}>
+      <View style={DefaultStyles.container}>
+      <View style={DefaultStyles.navbar}>
+      <View style={DefaultStyles.icon}>
       <TouchableOpacity onPress={() => this.props.navigation.navigate('DrawerOpen')}>
-      <Image style={styles.img} source={require('../images/icones.png')} />
+      <Image style={DefaultStyles.img} source={require('../images/icones.png')} />
       </TouchableOpacity>
       </View>
       </View>
-      <View style={styles.content}>
-      <CardScreen />
+      <View style={DefaultStyles.content}>
+      <Text style={styles.title}>TroK</Text>
+      <Text style={styles.description}>This application was created to people...</Text>
       </View>
       </View>
     );
@@ -24,24 +23,16 @@ export default class AboutUs extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#EAECEE'
+  title: {
+    marginTop: 50,
+    textAlign: 'center',
+    color: '#000',
+    fontSize: 25,
+    fontWeight: 'bold'
   },
-  navbar: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#29088A',
-  },
-  content: {
-    flex: 10
-  },
-  img: {
-    width: width / 10,
-    height: height / 14,
-  },
-  icon: {
-    justifyContent: 'center',
-    marginLeft: 10
+  description: {
+    marginTop: 15,
+    textAlign: 'center',
+    fontSize: 17
   }
 });
