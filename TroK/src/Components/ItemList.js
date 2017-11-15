@@ -5,10 +5,12 @@ import {
   TouchableOpacity,
   ScrollView,
   StyleSheet,
+  Text
 } from 'react-native';
 import axios from 'axios';
 import Item from './Item';
 import DefaultStyles from './Styles';
+import NavBarCustom from './NavBarCustom';
 
 export default class ItemList extends Component {
   constructor(props) {
@@ -23,27 +25,43 @@ export default class ItemList extends Component {
   }
 
   render() {
+    const { state } = this.props.navigation;
+    let idUserDescription;
+    try {
+      idUserDescription = state.params.idUserDescription;
+    } catch (error) {
+      idUserDescription = 'Bicicleta';
+    }
     return (
       <View style={DefaultStyles.container}>
-      <View style={DefaultStyles.navbar}>
-      <View style={DefaultStyles.icon}>
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('DrawerOpen')}>
-      <Image style={DefaultStyles.img} source={require('../images/icones.png')} />
-      </TouchableOpacity>
-      </View>
-      </View>
-      <View style={DefaultStyles.content}>
-      <ScrollView style={styles.ScrollView}>
-      { this.state.itemList.map(item => { return (<Item key={item.titulo} item={item} />)})}
-      </ScrollView>
-      </View>
-      </View>
-    );
-  }
-}
 
-const styles = StyleSheet.create({
-  ScrollView: {
-    backgroundColor: '#EAECEE',
+      <NavBarCustom myDrawerOpen={() => this.props.navigation.navigate('DrawerOpen')} />
+
+
+      <View style={DefaultStyles.content}>
+
+      <ScrollView style={styles.ScrollView}>
+      {
+        this.state.itemList.map(item =>
+          {
+            if (item.titulo === idUserDescription) {
+              return (<Item key={item.titulo} item={item} />);
+            }
+
+
+          })
+        }
+        </ScrollView>
+
+        </View>
+
+        </View>
+      );
+    }
   }
-});
+
+  const styles = StyleSheet.create({
+    ScrollView: {
+      backgroundColor: '#EAECEE',
+    }
+  });

@@ -31,7 +31,7 @@ export default class Welcome extends Component {
           <Card
           key={profile.id}
           profile={profile}
-          testeProps={() => this.props.navigation.navigate('ItemList')}
+          testeProps={() => this.props.navigation.navigate('ItemList', { idUserDescription: 'Balança digital' })}
           onSwipeOff={this.nextCard}
           />
         )
