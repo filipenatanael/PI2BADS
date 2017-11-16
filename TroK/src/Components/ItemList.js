@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import {
   View,
-  Image,
-  TouchableOpacity,
   ScrollView,
   StyleSheet,
-  Text
 } from 'react-native';
 import axios from 'axios';
 import Item from './Item';
@@ -34,12 +31,9 @@ export default class ItemList extends Component {
     }
     return (
       <View style={DefaultStyles.container}>
-
       <NavBarCustom myDrawerOpen={() => this.props.navigation.navigate('DrawerOpen')} />
 
-
       <View style={DefaultStyles.content}>
-
       <ScrollView style={styles.ScrollView}>
       {
         this.state.itemList.map(item =>
@@ -52,9 +46,7 @@ export default class ItemList extends Component {
           })
         }
         </ScrollView>
-
         </View>
-
         </View>
       );
     }

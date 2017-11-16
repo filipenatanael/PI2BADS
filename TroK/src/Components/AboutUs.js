@@ -1,8 +1,20 @@
+import firebase from 'firebase';
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import DefaultStyles from './Styles';
 
 export default class AboutUs extends Component {
+
+  listadados() {
+    let posts = firebase.database().ref("posts");
+    posts.on('value', (snapshot) => {
+      console.log(snapshot.val());
+      const dados = _.values(snapshot.val());
+      console.log(dados);
+    });
+  }
+
   render() {
     return (
       <View style={DefaultStyles.container}>
@@ -14,8 +26,12 @@ export default class AboutUs extends Component {
       </View>
       </View>
       <View style={DefaultStyles.content}>
-      <Text style={styles.title}>TroK</Text>
+
+
+      <Text style={styles.title} onPress={() => this.listadados()}>TroK</Text>
+
       <Text style={styles.description}>This application was created to people...</Text>
+
       </View>
       </View>
     );
