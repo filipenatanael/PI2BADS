@@ -19,7 +19,7 @@ class RegisterForm extends Component {
 
 
   render() {
-    let colorAlerts = '#fff';
+    let colorAlerts = 'transparent';
     if (this.props.errorRegister !== '') {
       colorAlerts = '#F7BE81';
     }
@@ -32,7 +32,7 @@ class RegisterForm extends Component {
       <TextInput
       value={this.props.name}
       placeholder="Name"
-      placeholderTextColor="#E59866"
+      placeholderTextColor="#585858"
       returnKeyType="next"
       keyboardType="default"
       autoCapitalize="none"
@@ -44,7 +44,7 @@ class RegisterForm extends Component {
       <TextInput
       value={this.props.email}
       placeholder="Email"
-      placeholderTextColor="#E59866"
+      placeholderTextColor="#585858"
       returnKeyType="next"
       keyboardType="email-address"
       autoCapitalize="none"
@@ -55,8 +55,8 @@ class RegisterForm extends Component {
 
       <TextInput
       value={this.props.password}
-      placeholder="Telefone"
-      placeholderTextColor="#E59866"
+      placeholder="Password"
+      placeholderTextColor="#585858"
       returnKeyType="next"
       keyboardType="default"
       autoCapitalize="none"
@@ -99,13 +99,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12.5
   },
   btnContainer: {
-    backgroundColor: '#D5D8DC',
+    backgroundColor: '#29088A',
     paddingVertical: 12.5,
     marginBottom: 5
   },
   btnRegister: {
     textAlign: 'center',
-    color: '#000',
-    fontWeight: '700'
+    color: '#fff',
+    fontWeight: '700',
+    fontSize: 15
   }
 });

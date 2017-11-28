@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import {
+  View,
   ScrollView,
   StyleSheet,
 } from 'react-native';
 import axios from 'axios';
 import Item from './Item';
+import DefaultStyles from './Styles';
+import NavBarCustom from './NavBarCustom';
 
 export default class ItemList extends Component {
   constructor(props) {
@@ -19,16 +22,38 @@ export default class ItemList extends Component {
   }
 
   render() {
+    const { state } = this.props.navigation;
+    let idUserDescription;
+    try {
+      idUserDescription = state.params.idUserDescription;
+    } catch (error) {
+      idUserDescription = 'Bicicleta';
+    }
     return (
-      <ScrollView style={styles.ScrollView}>
-      { this.state.itemList.map(item => { return (<Item key={item.titulo} item={item} />)})}
-      </ScrollView>
-    );
-  }
-}
+      <View style={DefaultStyles.container}>
+      <NavBarCustom myDrawerOpen={() => this.props.navigation.navigate('DrawerOpen')} />
 
-const styles = StyleSheet.create({
-  ScrollView: {
-    backgroundColor: '#EAECEE',
+      <View style={DefaultStyles.content}>
+      <ScrollView style={styles.ScrollView}>
+      {
+        this.state.itemList.map(item =>
+          {
+            if (item.titulo === idUserDescription) {
+              return (<Item key={item.titulo} item={item} />);
+            }
+
+
+          })
+        }
+        </ScrollView>
+        </View>
+        </View>
+      );
+    }
   }
-});
+
+  const styles = StyleSheet.create({
+    ScrollView: {
+      backgroundColor: '#EAECEE',
+    }
+  });
