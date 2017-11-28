@@ -7,6 +7,7 @@ import CardScreen from './CardScreen';
 import AboutUs from './AboutUs';
 import Home from './Home';
 import LoginScreen from './LoginScreen';
+import PostsRegister from './PostsRegister';
 
 const Stack = StackNavigator({
   CardScreen: {
@@ -22,17 +23,17 @@ const Stack = StackNavigator({
 
 const Drawer = DrawerNavigator(
   {
-    Home1: {
+    Home: {
       screen: Stack,
       navigationOptions: {
         drawer: {
-          label: 'testesdsf',
+          label: 'StackLabel',
         },
       }
     },
-    'My Items': {
+    'Postar Produto': {
       path: '/sent',
-      screen: ItemList,
+      screen: PostsRegister,
     },
     'Screen 3': {
       path: '/sent',
@@ -48,7 +49,7 @@ const Drawer = DrawerNavigator(
     }
   },
   {
-    initialRouteName: 'Home1',
+    initialRouteName: 'Home',
     drawerPosition: 'left',
     drawerWidth: 270,
     drawerBackgroundColor: 'transparent',
