@@ -22,6 +22,42 @@ export const changeName = (param) => {
   }
 }
 
+export const changeTitle = (param) => {
+  return {
+    type: 'change_Title',
+    payload: param
+  }
+}
+export const changeDescription = (param) => {
+  return {
+    type: 'change_Description',
+    payload: param
+  }
+}
+
+export const changePhoto = (param) => {
+  return {
+    type: 'change_Photo',
+    payload: param
+  }
+}
+
+
+export const registerPosts = ({ title, description, photo }) => {
+  return dispatch => {
+    firebase.database().ref('posts')
+    .push().set({ name: title, bio: description, id: photo })
+    .then(value => successfullyRegistered22test(dispatch));
+  }
+}
+
+const successfullyRegistered22test = (dispatch) => {
+  dispatch({ type: 'successfully_Registered22test' });
+}
+
+
+
+
 export const registerUser = ({ name, email, password }) => {
   return dispatch => {
     firebase.auth().createUserWithEmailAndPassword(email, password)

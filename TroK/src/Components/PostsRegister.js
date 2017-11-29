@@ -7,10 +7,18 @@ import {
   TouchableOpacity,
   Text
 } from 'react-native';
+import { connect } from 'react-redux';
+import { changeTitle, changeDescription, changePhoto, registerPosts } from '../actions/AuthenticationActions';
 import DefaultStyles from './Styles';
 import NavBarCustom from './NavBarCustom';
 
-export default class PostsRegister extends Component {
+class PostsRegister extends Component {
+
+  _registerPosts() {
+    const { title, description, photo } = this.props;
+    this.props.registerPosts({ title, description, photo });
+  }
+
   render() {
     return (
       <View style={DefaultStyles.container}>
@@ -20,8 +28,11 @@ export default class PostsRegister extends Component {
       <View style={styles.form}>
       <ScrollView>
 
+      <Text style={{ marginBottom: 18, textAlign: 'center', fontSize: 25, color: '#000', fontWeight: '700', }}>Publicar produto</Text>
+
       <TextInput
       value={this.props.title}
+      maxLength={20}
       placeholder="Titulo"
       placeholderTextColor="#585858"
       returnKeyType="next"
@@ -62,7 +73,7 @@ export default class PostsRegister extends Component {
       onChangeText={(photo) => this.props.changePhoto(photo)}
       />
 
-      <TouchableOpacity style={styles.btnContainer}>
+      <TouchableOpacity style={styles.btnContainer} onPress={() => this._registerPosts()}>
       <Text style={styles.btnRegister}>Publicar</Text>
       </TouchableOpacity>
 
@@ -74,6 +85,19 @@ export default class PostsRegister extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return (
+    {
+      title: state.AuthenticationReducer.title,
+      description: state.AuthenticationReducer.description,
+      photo: state.AuthenticationReducer.photo
+    }
+  );
+}
+
+export default connect(mapStateToProps, { changeTitle, changeDescription, changePhoto, registerPosts })(PostsRegister);
+
 
 const styles = StyleSheet.create({
   title: {

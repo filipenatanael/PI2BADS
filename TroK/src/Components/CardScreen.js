@@ -1,9 +1,12 @@
+import firebase from 'firebase';
 import React, { Component } from 'react';
 import { View, TouchableOpacity, Image } from 'react-native';
 import DefaultStyles from './Styles';
 import Card from './Card';
 
+const profiles = [];
 export default class Welcome extends Component {
+
   state = {
     profileIndex: 0,
   }
@@ -11,6 +14,27 @@ export default class Welcome extends Component {
   nextCard = () => {
     this.setState({ profileIndex: this.state.profileIndex + 1 });
   }
+
+  componentWillMount() {
+    const posts = firebase.database().ref('/posts');
+    posts.on("value", (snapshot) => {
+      //console.log(snapshot.val());
+      //let myArray = [];
+      snapshot.forEach((childSnapshot) => {
+        let item = childSnapshot.val();
+        item.key = childSnapshot.key;
+        profiles.push(item);
+        //console.log(profiles);
+      });
+      this.setState({
+        hasFetched: true,
+      });
+    },
+    (errorObject) => {
+      console.log("The read failed: " + errorObject.code);
+    });
+  }
+
 
   render() {
     const { profileIndex } = this.state;
@@ -47,7 +71,7 @@ export default class Welcome extends Component {
 
 
 
-const profiles = [
+const profilesTeste = [
   {
     id: 'https://cdn.pixabay.com/photo/2015/01/29/11/36/mobile-616012_960_720.jpg',
     name: 'Leandro Araujo',
