@@ -22,6 +22,60 @@ export const changeName = (param) => {
   }
 }
 
+export const changeTitle = (param) => {
+  return {
+    type: 'change_Title',
+    payload: param
+  }
+}
+export const changeDescription = (param) => {
+  return {
+    type: 'change_Description',
+    payload: param
+  }
+}
+
+export const changePhoto = (param) => {
+  return {
+    type: 'change_Photo',
+    payload: param
+  }
+}
+
+
+const snapshotToArray = (snapshot) => {
+  let returnArr = [];
+  snapshot.forEach(function(childSnapshot) {
+    let item = childSnapshot.val();
+    item.key = childSnapshot.key;
+    returnArr.push(item);
+  });
+  return returnArr;
+}
+
+
+export const registerPosts = ({ title, description, photo }) => {
+  const { currentUser } = firebase.auth();
+  const currentEmail = currentUser.email;
+
+  return dispatch => {
+    const currentUserB64 = b64.encode(currentEmail);
+    firebase.database().ref('/contacts/' + currentUserB64).once('value').then(function(snapshot) {
+      let snapshotInArray = snapshotToArray(snapshot);
+      let username = snapshotInArray[0].name;
+      let userEmail = currentUser.email;
+      let newDescription = '['+title+'] '+description;
+      firebase.database().ref('posts')
+      .push().set({ name: username, email: userEmail, bio: newDescription, id: photo })
+      .then(value => successfullyRegistered22test(dispatch));
+    });
+  }
+}
+
+const successfullyRegistered22test = (dispatch) => {
+  dispatch({ type: 'successfully_Registered22test' });
+}
+
 export const registerUser = ({ name, email, password }) => {
   return dispatch => {
     firebase.auth().createUserWithEmailAndPassword(email, password)

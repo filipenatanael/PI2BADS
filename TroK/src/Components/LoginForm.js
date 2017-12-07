@@ -38,6 +38,7 @@ class LoginForm extends Component {
       autoCapitalize="none"
       autoCorrect={false}
       style={styles.input}
+      underlineColorAndroid='transparent'
       />
       <TextInput
       value={this.props.password}
@@ -48,6 +49,7 @@ class LoginForm extends Component {
       secureTextEntry
       style={styles.input}
       ref={(input) => this.passwordInput = input}
+      underlineColorAndroid='transparent'
       />
       <TouchableOpacity style={styles.btnContainer} onPress={() => this._authenticationUserUser()}>
       <Text style={styles.btnLogin}>Log in</Text>

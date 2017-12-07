@@ -38,6 +38,7 @@ class RegisterForm extends Component {
       autoCapitalize="none"
       autoCorrect={false}
       style={styles.input}
+      underlineColorAndroid='transparent'
       onChangeText={(name) => this.props.changeName(name)}
       />
 
@@ -50,6 +51,7 @@ class RegisterForm extends Component {
       autoCapitalize="none"
       autoCorrect={false}
       style={styles.input}
+      underlineColorAndroid='transparent'
       onChangeText={(email) => this.props.changeEmail(email)}
       />
 
@@ -62,6 +64,8 @@ class RegisterForm extends Component {
       autoCapitalize="none"
       autoCorrect={false}
       style={styles.input}
+      underlineColorAndroid='transparent'
+      secureTextEntry
       onChangeText={(password) => this.props.changePassword(password)}
       />
 
