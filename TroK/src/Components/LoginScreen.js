@@ -11,7 +11,7 @@ export default class LoginScreen extends Component {
       <Image style={{ flex: 1, width: null }} source={require('../images/Background.png')}>
       <TouchableHighlight onPress={() => Actions.RegisterScreen()}>
 
-      <Text style={{ color: '#fff', fontSize: 18, textAlign: 'center', marginTop: 25 }}>I dont have account!</Text>
+      <Text style={{ color: '#fff', fontSize: 18, textAlign: 'center', marginTop: 25 }}>Não tenho conta de acesso!</Text>
 
       </TouchableHighlight>
       <View style={styles.logoContainer}>

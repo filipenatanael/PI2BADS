@@ -9,6 +9,9 @@ import Home from './Home';
 import LoginScreen from './LoginScreen';
 import PostsRegister from './PostsRegister';
 
+const PROFILE_NAME = "TroK";
+const PROFILE_EMAIL = "Trok@trok.com";
+
 const Stack = StackNavigator({
   CardScreen: {
     screen: CardScreen,
@@ -35,15 +38,15 @@ const Drawer = DrawerNavigator(
       path: '/sent',
       screen: PostsRegister,
     },
-    'Screen 3': {
+    'Configurações': {
       path: '/sent',
       screen: CardScreen,
     },
-    'Screen 4': {
+    'Suporte': {
       path: '/sent',
       screen: CardScreen,
     },
-    'About Us': {
+    'Sobre nos': {
       path: '/sent',
       screen: AboutUs,
     }
@@ -65,8 +68,8 @@ const Drawer = DrawerNavigator(
     </View>
 
     <View style={styles.drawerTextContainer}>
-    <Text style={styles.name}>TroK</Text>
-    <Text style={styles.email}>trok@hotmail.com</Text>
+    <Text style={styles.name}>{PROFILE_NAME}</Text>
+    <Text style={styles.email}>{PROFILE_EMAIL}</Text>
     </View>
     </View>
     <DrawerItems {...props} />

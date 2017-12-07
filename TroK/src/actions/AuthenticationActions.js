@@ -43,20 +43,38 @@ export const changePhoto = (param) => {
 }
 
 
+const snapshotToArray = (snapshot) => {
+  let returnArr = [];
+  snapshot.forEach(function(childSnapshot) {
+    let item = childSnapshot.val();
+    item.key = childSnapshot.key;
+    returnArr.push(item);
+  });
+  return returnArr;
+}
+
+
 export const registerPosts = ({ title, description, photo }) => {
+  const { currentUser } = firebase.auth();
+  const currentEmail = currentUser.email;
+
   return dispatch => {
-    firebase.database().ref('posts')
-    .push().set({ name: title, bio: description, id: photo })
-    .then(value => successfullyRegistered22test(dispatch));
+    const currentUserB64 = b64.encode(currentEmail);
+    firebase.database().ref('/contacts/' + currentUserB64).once('value').then(function(snapshot) {
+      let snapshotInArray = snapshotToArray(snapshot);
+      let username = snapshotInArray[0].name;
+      let userEmail = currentUser.email;
+      let newDescription = '['+title+'] '+description;
+      firebase.database().ref('posts')
+      .push().set({ name: username, email: userEmail, bio: newDescription, id: photo })
+      .then(value => successfullyRegistered22test(dispatch));
+    });
   }
 }
 
 const successfullyRegistered22test = (dispatch) => {
   dispatch({ type: 'successfully_Registered22test' });
 }
-
-
-
 
 export const registerUser = ({ name, email, password }) => {
   return dispatch => {

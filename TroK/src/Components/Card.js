@@ -46,7 +46,7 @@ export default class Card extends Component {
   }
 
   render() {
-    const { name, bio, id } = this.props.profile
+    const { name, bio, id, email } = this.props.profile;
     const fbImage = id;
 
     const rotateCard = this.pan.x.interpolate({
