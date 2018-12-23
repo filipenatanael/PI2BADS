@@ -28,8 +28,6 @@ export default (state = INITIAL_STATE, action) => {
     return { ...state, description: action.payload }
   } else if (action.type === 'change_Photo') {
     return { ...state, photo: action.payload }
-  } else if (action.type === 'successfully_Registered22test') {
-    return { ...state, title: '' }
   }
   return state;
 }
