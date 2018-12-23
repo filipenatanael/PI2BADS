@@ -14,7 +14,16 @@ and Swify. Our goal is to continue development in the next semester.
   </p>
 <br>
 
-<h3 align="center">Credits: Bruno Magalhães, Filipe Natanael, Bruno de Sousa, Carlos Roberto de Oliveira, Yan Trotta Soares.</h3>
+### Credits Authors
+
+- Bruno Magalhães
+- Filipe Natanael
+- Bruno de Sousa
+- Carlos Roberto de Oliveira
+- Yan Trotta Soares.
 
 
-![]()
+### PrintScreen
+
+
+![](./Resources/print-screen.PNG)
