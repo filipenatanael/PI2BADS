@@ -18,13 +18,10 @@ export default class Welcome extends Component {
   componentWillMount() {
     const posts = firebase.database().ref('/posts');
     posts.on("value", (snapshot) => {
-      //console.log(snapshot.val());
-      //let myArray = [];
       snapshot.forEach((childSnapshot) => {
         let item = childSnapshot.val();
         item.key = childSnapshot.key;
         profiles.push(item);
-        //console.log(profiles);
       });
       this.setState({
         hasFetched: true,
@@ -67,9 +64,6 @@ export default class Welcome extends Component {
     );
   }
 }
-
-
-
 
 const profilesTeste = [
   {
