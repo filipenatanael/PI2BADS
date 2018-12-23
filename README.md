@@ -10,7 +10,7 @@ exchange of non-profit consumer goods. Development is being
 performing using React Native with the firebase platform. Unfortunately the
 to contemplate access to all native mobile component, in this way we are faced with
 the need to develop some native components and resources using Java
-and Swify. Our goal is to continue development in the next semester.
+and Swify.
   </p>
 <br>
 
