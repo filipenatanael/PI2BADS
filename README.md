@@ -14,8 +14,6 @@ and Swify.
   </p>
 <br>
 
-### PrintScreen
-
 ![](./Resources/print-screen.PNG)
 
 ### Credits Authors
