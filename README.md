@@ -14,6 +14,10 @@ and Swify.
   </p>
 <br>
 
+### PrintScreen
+
+![](./Resources/print-screen.PNG)
+
 ### Credits Authors
 
 - Bruno Magalhães
@@ -21,9 +25,3 @@ and Swify.
 - Bruno de Sousa
 - Carlos Roberto de Oliveira
 - Yan Trotta Soares.
-
-
-### PrintScreen
-
-
-![](./Resources/print-screen.PNG)
